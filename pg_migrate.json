@@ -1,0 +1,7 @@
+{
+  "user": "pg-utils",
+  "password": "",
+  "host": "localhost",
+  "name": "pg-utils-test",
+  "port": 5432
+}

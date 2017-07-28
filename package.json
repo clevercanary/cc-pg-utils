@@ -1,0 +1,42 @@
+{
+  "name": "cc-pg-utils",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "test": "npm-run-all test_setup run_test",
+    "test_setup": "npm-run-all build clean_test build_test",
+    "test_debug": "npm-run-all test_setup run_debug_test",
+    "clean_test": "rm -rf ./test",
+    "build_test": "tsc --project ./test-src --pretty",
+    "run_test": "mocha",
+    "run_debug_test": "mocha --debug-brk"
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "cc-qm": "git+https://github.com/clevercanary/cc-qm.git#v1.2.0"
+  },
+  "devDependencies": {
+    "@types/chai": "4.0.1",
+    "@types/mocha": "2.2.41",
+    "@types/mongoose": "4.7.19",
+    "@types/node": "6.0.85",
+    "@types/pg-types": "1.11.2",
+    "@types/umzug": "^1.8.32",
+    "cc-qm": "git+https://github.com/clevercanary/cc-qm.git#v1.2.0",
+    "chai": "4.1.0",
+    "mocha": "3.4.2",
+    "node-pg-migrate": "2.6.0",
+    "npm-run-all": "4.0.2",
+    "tslint": "5.5.0",
+    "typescript": "2.4.2",
+    "umzug": "^2.0.1"
+  },
+  "dependencies": {
+    "lodash": "4.17.4",
+    "pg": "7.0.2",
+    "sql-bricks-postgres": "^0.4.3"
+  }
+}
