@@ -38,6 +38,6 @@
   "dependencies": {
     "lodash": "4.17.4",
     "pg": "7.0.2",
-    "sql-bricks-postgres": "^0.4.3"
+    "sql-bricks-postgres": "git+https://github.com/cdbajorin/sql-bricks-postgres#7c2d573ab79691c1aa29658760833796eb9fc54b"
   }
 }
