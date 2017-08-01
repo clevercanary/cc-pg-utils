@@ -13,6 +13,8 @@ export interface Client {
     query<T>(query: Params): Promise<QueryResult<T>>;
 
     select(...columns: string[]): Select;
+    select(columns: string[]): Select;
+    select(columns: string): Select;
     // Select: Select;
 
     insert<T>(table: string, values: Partial<T>): Insert<T>;

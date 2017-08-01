@@ -1,17 +1,21 @@
-import { Pool as PgPool, Client as PgClient, ConnectionConfig } from "pg";
+import { Pool as PgPool, Client as PgClient, ConnectionConfig as PgConfig } from "pg";
 import * as pgsql from "sql-bricks-postgres";
 import { Sql } from "./Sql";
 import { Client } from "./Client";
 import { QueryResult } from "./query/QueryResult";
 import { Statement } from "./commands/Statement";
 
+export interface ConnectionConfig extends PgConfig {
+    debug: boolean;
+}
+
 // TODO - query stream functionality implementation
 export class Pool {
 
-    private config: ConnectionConfig  & { debug: boolean };
+    private config: ConnectionConfig;
     private pool: PgPool;
 
-    constructor(config: ConnectionConfig & { debug: boolean }) {
+    constructor(config: ConnectionConfig) {
         this.config = config;
         this.pool = new PgPool(config);
     }
@@ -76,6 +80,7 @@ export class Pool {
         catch (error) {
             await client.query("ROLLBACK");
             this.config.debug ? console.log(`\x1b[35mPostgres: \x1b[37mTRANSACTION ROLLBACK`) : void 0;
+            this.config.debug ? console.log(error) : void 0;
             throw error;
         }
         finally {
@@ -101,7 +106,6 @@ export class Pool {
         // Monkey-patch is complete, so we need to force typecast
         return (pgClient as any) as Client;
     }
-
 
     /**
      * Append insert Methods to client

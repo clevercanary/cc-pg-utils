@@ -5,9 +5,7 @@ class MigrationStorage {
 
     private _migrated = new Set<string>();
 
-    constructor() {
-
-    }
+    constructor() {}
 
     logMigration(name) {
         // console.log(`${name} migrated`);

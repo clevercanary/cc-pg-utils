@@ -1,14 +1,15 @@
-import { ConnectionConfig } from "pg";
+import { ConnectionConfig as PgConfig } from "pg";
 import { Sql } from "./Sql";
 import { Client } from "./Client";
 import { QueryResult } from "./query/QueryResult";
 import { Statement } from "./commands/Statement";
+export interface ConnectionConfig extends PgConfig {
+    debug: boolean;
+}
 export declare class Pool {
     private config;
     private pool;
-    constructor(config: ConnectionConfig & {
-        debug: boolean;
-    });
+    constructor(config: ConnectionConfig);
     /**
      * Expose Sql-Bricks-Postgres methods
      *

@@ -3,7 +3,11 @@ import { Statement } from "./commands/Statement";
 import { Where } from "./commands/Where";
 
 export interface Sql {
-    select(val: string): Select;
+
+    select(...columns: string[]): Select;
+    select(columns: string[]): Select;
+    select(columns: string): Select;
+
     in(col: string, list: string[] | Select): Statement;
     exists(subquery: Sql): Where;
     eq(col: string, val: any): Where;

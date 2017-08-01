@@ -135,6 +135,7 @@ var Pool = (function () {
                     case 7:
                         _a.sent();
                         this.config.debug ? console.log("\u001B[35mPostgres: \u001B[37mTRANSACTION ROLLBACK") : void 0;
+                        this.config.debug ? console.log(error_1) : void 0;
                         throw error_1;
                     case 8:
                         client.release();

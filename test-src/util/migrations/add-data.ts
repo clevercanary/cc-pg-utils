@@ -8,10 +8,11 @@ export async function up() {
 
         const peopleR = await client.insert("person")
             .values([
-                { first_name: "Fred", last_name: "Flinstone" },
+                { first_name: "Fred", last_name: "Flintstone" },
                 { first_name: "Barney", last_name: "Rubble" },
-                { first_name: "Wilma", last_name: "Flinstone" }
+                { first_name: "Wilma", last_name: "Flintstone" }
             ]).returning("*").run();
+
         const addressesR = await client.insert("address")
             .values([
                 { street_address: "100 Bedrock Way", city: "Bedrock" },
@@ -21,6 +22,7 @@ export async function up() {
 
         const [fred, barney, wilma] = peopleR.rows;
         const [add1, add2, add3] = addressesR.rows;
+
         return client.insert("person_address")
             .values([
                 {person_id: fred.id, address_id: add1.id},

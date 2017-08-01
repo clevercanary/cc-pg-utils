@@ -58,7 +58,9 @@ export interface Select extends Statement {
     orderBy(field: string): this;
     rightJoin(...tables: string[]): this;
     rightJoin(tables: string, criteria: JoinCriteria): this;
-    select(): any;
+    select(...columns: string[]): this;
+    select(columns: string[]): this;
+    select(columns: string): this;
     union(): any;
     unionAll(): any;
     using(columns: string[]): this;

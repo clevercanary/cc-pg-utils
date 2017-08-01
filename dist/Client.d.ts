@@ -9,6 +9,8 @@ export interface Client {
     query<T>(queryText: string, values: any[]): Promise<QueryResult<T>>;
     query<T>(query: Params): Promise<QueryResult<T>>;
     select(...columns: string[]): Select;
+    select(columns: string[]): Select;
+    select(columns: string): Select;
     insert<T>(table: string, values: Partial<T>): Insert<T>;
     insert<T>(table: string, ...fields: (keyof Partial<T>)[]): Insert<T>;
     delete(table: string): Delete;
