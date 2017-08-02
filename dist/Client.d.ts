@@ -14,7 +14,7 @@ export interface Client {
     insert<T>(table: string, values: Partial<T>): Insert<T>;
     insert<T>(table: string, ...fields: (keyof Partial<T>)[]): Insert<T>;
     delete(table: string): Delete;
-    update(): Update;
+    update(table: string): Update;
     applyQuery<T>(select: Statement): Promise<QueryResult<T>>;
     count(select: Statement): Promise<QueryResult<{
         count: number;
