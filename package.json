@@ -1,6 +1,6 @@
 {
   "name": "cc-pg-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -16,9 +16,6 @@
   },
   "author": "",
   "license": "ISC",
-  "peerDependencies": {
-    "cc-qm": "git+https://github.com/clevercanary/cc-qm.git#v1.2.0"
-  },
   "devDependencies": {
     "@types/chai": "4.0.1",
     "@types/mocha": "2.2.41",
@@ -26,7 +23,6 @@
     "@types/node": "6.0.85",
     "@types/pg-types": "1.11.2",
     "@types/umzug": "^1.8.32",
-    "cc-qm": "git+https://github.com/clevercanary/cc-qm.git#v1.2.0",
     "chai": "4.1.0",
     "mocha": "3.4.2",
     "node-pg-migrate": "2.6.0",
@@ -36,8 +32,9 @@
     "umzug": "^2.0.1"
   },
   "dependencies": {
+    "cc-qm": "git+https://github.com/clevercanary/cc-qm.git#v1.2.0",
     "lodash": "4.17.4",
     "pg": "7.0.2",
-    "sql-bricks-postgres": "git+https://github.com/cdbajorin/sql-bricks-postgres#7c2d573ab79691c1aa29658760833796eb9fc54b"
+    "sql-bricks-postgres": "0.4.3"
   }
 }

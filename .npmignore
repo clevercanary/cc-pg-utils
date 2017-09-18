@@ -3,3 +3,4 @@ test-src
 pg_migrate.json
 .gitignore
 node_modules
+umzug.json

@@ -32,7 +32,7 @@ class MigrationStorage {
 const root = path.join(__dirname, "../../");
 
 export const umzug = new Umzug({
-    storage: new MigrationStorage(),
+    storage: "json",
     migrations: {
         path: path.join(root, "test/util/migrations"),
         pattern: /\.js$/

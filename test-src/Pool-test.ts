@@ -77,7 +77,7 @@ describe("Pool connection", function() {
 
     it("should run a delete", function() {
         return pool.transaction(async(client) => {
-                await client.delete("person").where({ last_name: "Flinstone" }).run();
+                await client.delete("person").where({ last_name: "Flintstone" }).run();
                 return client.select("*").from("person").run();
             })
             .then(({ rows }) => {
