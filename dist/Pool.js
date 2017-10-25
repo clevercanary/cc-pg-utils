@@ -214,12 +214,9 @@ var Pool = (function () {
         var client = pgClient;
         client.count = function (brick) {
             var cloned = brick.clone();
-            // grab the primary table being queried from. TODO - I'm not sure if this will work consistently with composability
-            var fromList = cloned._from[0].split(" ");
-            var fromTable = fromList[fromList.length - 1];
             // this wipes all other select columns and forces it to be a count query.
             cloned._columns = [];
-            cloned._columns.push("COUNT(DISTINCT " + fromTable + ".id)");
+            cloned._columns.push("COUNT(*)");
             // remove any sort orders that will mess with aggregate
             delete cloned._orderBy;
             _this.logIt(cloned);
