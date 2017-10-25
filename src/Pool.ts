@@ -166,12 +166,9 @@ export class Pool {
 
             const cloned = brick.clone() as any;
 
-            // grab the primary table being queried from. TODO - I'm not sure if this will work consistently with composability
-            const fromList = cloned._from[0].split(" ");
-            const fromTable = fromList[fromList.length - 1];
             // this wipes all other select columns and forces it to be a count query.
             cloned._columns = [];
-            cloned._columns.push(`COUNT(DISTINCT ${fromTable}.id)`);
+            cloned._columns.push(`COUNT(*)`);
 
             // remove any sort orders that will mess with aggregate
             delete cloned._orderBy;
