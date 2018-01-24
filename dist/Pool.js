@@ -252,7 +252,8 @@ var Pool = (function () {
      */
     Pool.prototype.logIt = function (brick) {
         if (this.config.debug) {
-            console.log("\u001B[35mPostgres: \u001B[37m" + brick.toString());
+            var log = brick.toString().replace(/\n\s*/g, " ");
+            console.log("\u001B[35mPostgres: \u001B[37m" + log);
         }
     };
     return Pool;

@@ -15,7 +15,9 @@ export interface Sql {
     and(where: Where[]): Select;
     and(...where: Where[]): Select;
 
-    in(col: string, list: string[] | Select): Statement;
+    in(col: string, list: string[]): Statement;
+    in(col: string, list: number[]): Statement;
+    in(col: string, list: Select): Statement;
     exists(subquery: Sql): Where;
     eq(col: string, val: any): Where;
     notEq(col: string, val: any): Where;

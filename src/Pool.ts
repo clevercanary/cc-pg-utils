@@ -209,7 +209,8 @@ export class Pool {
      */
     logIt(brick: Statement) {
         if (this.config.debug) {
-            console.log(`\x1b[35mPostgres: \x1b[37m${brick.toString()}`);
+            let log = brick.toString().replace(/\n\s*/g, " ");
+            console.log(`\x1b[35mPostgres: \x1b[37m${log}`);
         }
     }
 }
